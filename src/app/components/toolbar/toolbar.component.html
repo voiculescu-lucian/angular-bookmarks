@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="title">Bookmarker</span>
+
+  <div class="toolbar-center" >
+    <mat-form-field appearance="outline" [matTooltipDisabled]="!searchDisabled()" matTooltipPosition="below" [matTooltip]="disabledText">
+      <mat-icon matPrefix class="white">search</mat-icon>
+      <input matInput type="text" class="white" placeholder="Filter bookmarks..."
+       />
+    </mat-form-field>
+  </div>
+
+  <button mat-icon-button>
+    <mat-icon class="white">add</mat-icon>
+  </button>
+</mat-toolbar>
