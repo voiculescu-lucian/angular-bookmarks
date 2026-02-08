@@ -1,0 +1,28 @@
+.spacer {
+  flex: 1;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.group {
+  margin-bottom: 24px;
+}
+
+.bookmark {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.info {
+  flex: 1;
+}
+
+.title {
+  font-weight: 500;
+}

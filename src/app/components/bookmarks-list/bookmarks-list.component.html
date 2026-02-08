@@ -1,0 +1,92 @@
+<!-- Top bar -->
+<mat-toolbar color="primary">
+  <span>Bookmarker</span>
+
+  <span class="spacer"></span>
+
+  <mat-form-field>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput placeholder="Filter bookmarks..." />
+  </mat-form-field>
+
+  <button mat-icon-button>
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- Content -->
+<div class="page">
+     @if ((bookmarksByDate$ | async); as grouped) {
+         <!-- TODAY -->
+          @if (grouped.today.length) {
+            <section class="group">
+              <h3>Today</h3>
+
+              @for (bookmark of grouped.today; track bookmark.id) {
+                <div class="bookmark">
+                  <mat-icon>bookmark</mat-icon>
+
+                  <div class="info">
+                    <div class="title">{{ bookmark.title }}</div>
+                    <a [href]="bookmark.url" target="_blank">
+                      {{ bookmark.url }}
+                    </a>
+                  </div>
+
+                  <button mat-icon-button>
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </div>
+              }
+            </section>
+          }
+
+          <!-- YESTERDAY -->
+          @if (grouped.yesterday.length) {
+            <section class="group">
+              <h3>Yesterday</h3>
+
+              @for (bookmark of grouped.yesterday; track bookmark.id) {
+                <div class="bookmark">
+                  <mat-icon>bookmark</mat-icon>
+
+                  <div class="info">
+                    <div class="title">{{ bookmark.title }}</div>
+                    <a [href]="bookmark.url" target="_blank">
+                      {{ bookmark.url }}
+                    </a>
+                  </div>
+
+                  <button mat-icon-button>
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </div>
+              }
+            </section>
+          }
+
+          <!-- OLDER -->
+          @if (grouped.older.length) {
+            <section class="group">
+              <h3>Older</h3>
+
+              @for (bookmark of grouped.older; track bookmark.id) {
+                <div class="bookmark">
+                  <mat-icon>bookmark</mat-icon>
+
+                  <div class="info">
+                    <div class="title">{{ bookmark.title }}</div>
+                    <a [href]="bookmark.url" target="_blank">
+                      {{ bookmark.url }}
+                    </a>
+                  </div>
+
+                  <button mat-icon-button>
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </div>
+              }
+            </section>
+          }
+     }
+</div>
