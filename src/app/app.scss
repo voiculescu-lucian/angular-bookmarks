@@ -1,0 +1,25 @@
+.spacer {
+  flex: 1;
+}
+
+.page {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+:host::ng-deep {
+    .underline-only {
+        .mat-mdc-text-field-wrapper {
+            background: transparent;
+        }
+
+        .mdc-line-ripple {
+            display: block;
+        }
+
+        .mdc-notched-outline {
+            display: none;
+        }
+    }
+}

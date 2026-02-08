@@ -8,6 +8,8 @@ import { InMemoryDbDataService } from './services/in-memory-db-data.service';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { provideStore } from '@ngrx/store';
 import { bookmarksReducer } from './store/bookmarks.reducer';
+import { BookmarksEffects } from './store/bookmark.effects';
+import { provideEffects } from '@ngrx/effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       bookmarks: bookmarksReducer
     }),
+    provideEffects(BookmarksEffects),
     importProvidersFrom(
       InMemoryWebApiModule.forRoot(InMemoryDbDataService, {
         delay: 300,

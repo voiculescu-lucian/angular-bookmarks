@@ -1,7 +1,6 @@
 import { createSelector } from "@ngrx/store";
 import { BookmarksState } from "./bookmarks.reducer";
 import { startOfDay } from "../utils/date.utils";
-import { BookmarkState } from "./bookmark-state.model";
 import { Bookmark } from "../interfaces/bookmark.interface";
 
 export const selectBookmarksState = (state: any): BookmarksState =>
@@ -32,3 +31,9 @@ export const selectBookmarksGroupedByDate = createSelector(
     };
   }
 );
+
+export const selectBookmarkById = (id: string) =>
+  createSelector(
+    selectAllBookmarks,
+    bookmarks => bookmarks.find(bookmark => bookmark.id === Number(id)) ?? null
+  );

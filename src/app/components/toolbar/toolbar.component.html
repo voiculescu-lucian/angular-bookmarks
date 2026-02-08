@@ -1,8 +1,8 @@
 <mat-toolbar color="primary" class="toolbar">
-  <span class="title">Bookmarker</span>
+  <span class="title pointer" (click)="$event.stopPropagation()" [routerLink]="['/bookmarks']">Bookmarker</span>
 
   <div class="toolbar-center" >
-    <mat-form-field appearance="outline" [matTooltipDisabled]="!searchDisabled()" matTooltipPosition="below" [matTooltip]="disabledText">
+    <mat-form-field appearance="fill" class="toolbar-search" [matTooltipDisabled]="!searchDisabled()" matTooltipPosition="below" [matTooltip]="disabledText">
       <mat-icon matPrefix class="white">search</mat-icon>
       <input matInput type="text" class="white" placeholder="Filter bookmarks..."
        />

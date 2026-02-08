@@ -2,6 +2,7 @@ import { Component, input, InputSignal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Bookmark } from '../../../interfaces/bookmark.interface';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-bookmarks-list',
@@ -10,7 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
     standalone: true,
     imports: [
         MatIconModule,
-        MatButtonModule
+        MatButtonModule,
+        RouterModule
     ]
 })
 export class BookmarksListComponent {

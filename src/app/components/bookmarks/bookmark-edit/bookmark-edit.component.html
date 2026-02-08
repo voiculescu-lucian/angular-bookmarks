@@ -1,0 +1,46 @@
+@if (bookmark$ | async; as bookmark) {
+   <mat-card class="edit-card">
+    <div class="d-flex mb-16">
+        <mat-card-title class="w50">Edit Existing Bookmark</mat-card-title>
+        <mat-card-subtitle class="w50">
+            Type bookmark name and url
+        </mat-card-subtitle>
+        <mat-icon>bookmark_border</mat-icon>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="save()">
+
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="underline-only">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+
+        <mat-form-field class="url" appearance="fill" class="underline-only">
+          <mat-label>URL</mat-label>
+          <input matInput formControlName="url" />
+        </mat-form-field>
+      </div>
+
+      <div class="actions">
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          class="cancel-button"
+          (click)="$event.stopPropagation()" [routerLink]="['/bookmarks']">
+          Cancel
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          class="submit-button"
+          [disabled]="form.invalid || form.pristine">
+          Update Bookmark
+        </button>
+      </div>
+
+    </form>
+  </mat-card>
+}

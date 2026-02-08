@@ -1,22 +1,16 @@
-<!-- Top bar -->
-<app-toolbar [searchDisabled]="false" />
+@if ((bookmarksByDate$ | async); as grouped) {
+    <!-- TODAY -->
+    @if (grouped.today.length) {
+      <app-bookmarks-list [title]="'Today'" [bookmarks]="grouped.today" />
+    }
 
-<!-- Content -->
-<div class="page">
-     @if ((bookmarksByDate$ | async); as grouped) {
-         <!-- TODAY -->
-          @if (grouped.today.length) {
-            <app-bookmarks-list [title]="'Today'" [bookmarks]="grouped.today" />
-          }
+    <!-- YESTERDAY -->
+    @if (grouped.yesterday.length) {
+      <app-bookmarks-list [title]="'Yesterday'" [bookmarks]="grouped.yesterday" />
+    }
 
-          <!-- YESTERDAY -->
-          @if (grouped.yesterday.length) {
-           <app-bookmarks-list [title]="'Yesterday'" [bookmarks]="grouped.yesterday" />
-          }
-
-          <!-- OLDER -->
-          @if (grouped.older.length) {
-            <app-bookmarks-list [title]="'Older'" [bookmarks]="grouped.older" />
-          }
-     }
-</div>
+    <!-- OLDER -->
+    @if (grouped.older.length) {
+      <app-bookmarks-list [title]="'Older'" [bookmarks]="grouped.older" />
+    }
+}

@@ -26,6 +26,10 @@ mat-toolbar {
   justify-content: center;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 mat-form-field {
   width: 320px;
   height: 64px;
@@ -38,6 +42,8 @@ mat-icon,
     color: white;
   }
 }
+
+
 
 :host::ng-deep {
   .mat-mdc-form-field {
@@ -53,8 +59,46 @@ mat-icon,
   .mat-mdc-form-field .mdc-notched-outline__notch {
     border:0;
   }
-  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input.white,
-  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input.white::placeholder {
-    color: white;
+  .mdc-text-field__input.white,
+  .mdc-text-field__input.white::placeholder {
+    color: white!important;
   }
+
+  .toolbar-search {
+    width: 420px;
+    }
+
+    .toolbar-search .mat-mdc-text-field-wrapper {
+    background: transparent;
+    }
+
+    .toolbar-search .mdc-notched-outline {
+    display: none;
+    }
+
+    .toolbar-search .mdc-line-ripple {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .toolbar-search input {
+    color: white;
+    }
+
+    .toolbar-search input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-icon {
+    color: white;
+    }
+
+    mat-icon {
+    color: white;
+    }
+
+    .toolbar-search .mdc-line-ripple::before,
+    .toolbar-search .mdc-line-ripple::after {
+    border-bottom-color: white !important;
+    }
 }

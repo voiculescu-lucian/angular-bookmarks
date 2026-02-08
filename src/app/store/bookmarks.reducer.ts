@@ -11,17 +11,17 @@ const initialState: BookmarksState = {
 };
 
 export const bookmarksReducer = createReducer(
-     initialState,
+  initialState,
 
-  on(BookmarksActions.loadBookmarks, (state, { bookmarks }) => ({
+  on(BookmarksActions.loadBookmarksSuccess, (state, { bookmarks }) => ({
     ...state,
     bookmarks,
   })),
 
   on(BookmarksActions.updateBookmark, (state, { bookmark }) => ({
     ...state,
-    bookmarks: state.bookmarks.map((book: Bookmark) =>
+    bookmarks: state.bookmarks.map(book =>
       book.id === bookmark.id ? bookmark : book
     ),
-  })),
+  }))
 );

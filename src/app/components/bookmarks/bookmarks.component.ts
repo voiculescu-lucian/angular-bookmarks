@@ -2,12 +2,11 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Bookmark } from '../../interfaces/bookmark.interface';
 import { BookmarksService } from '../../services/bookmarks.service';
 import { AsyncPipe } from '@angular/common';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { selectBookmarksGroupedByDate } from '../../store/bookmarks.selectors';
+import { selectAllBookmarks, selectBookmarksGroupedByDate } from '../../store/bookmarks.selectors';
 import { loadBookmarks } from '../../store/bookmarks.actions';
 import { BookmarksListComponent } from './bookmarks-list/bookmarks-list.component';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 @Component({
     selector: 'app-bookmarks',
@@ -16,7 +15,6 @@ import { ToolbarComponent } from '../toolbar/toolbar.component';
     standalone: true,
     imports: [
         BookmarksListComponent,
-        ToolbarComponent,
         AsyncPipe
     ]
 })
@@ -33,12 +31,11 @@ export class BookmarksComponent implements OnInit {
     private readonly _bookmarksService = inject(BookmarksService);
   
     public ngOnInit(): void {
-        this._bookmarksService.list().subscribe({
-            next: (bookmarks: Array<Bookmark>) => {
-                this.store.dispatch(loadBookmarks({ bookmarks }));
-            },
-            error: (error) => {
-                console.error('Error fetching bookmarks:', error);
+        this.store.select(selectAllBookmarks)
+            .pipe(take(1))
+            .subscribe(bookmarks => {
+            if (!bookmarks.length) {
+                this.store.dispatch(loadBookmarks());
             }
         });
     }
