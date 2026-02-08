@@ -1,0 +1,20 @@
+<section class="group">
+    <h3>{{ title() }}</h3>
+
+    @for (bookmark of bookmarks(); track bookmark.id) {
+        <div class="bookmark">
+            <mat-icon>bookmark</mat-icon>
+
+            <div class="info">
+                <div class="title">{{ bookmark.title }}</div>
+                <a [href]="bookmark.url" target="_blank">
+                    {{ bookmark.url }}
+                </a>
+            </div>
+
+            <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+        </div>
+    }
+</section>

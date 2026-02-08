@@ -11,22 +11,24 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectBookmarksGroupedByDate } from '../../store/bookmarks.selectors';
 import { loadBookmarks } from '../../store/bookmarks.actions';
+import { BookmarksListComponent } from './bookmarks-list/bookmarks-list.component';
 
 @Component({
-  selector: 'app-bookmarks-list',
-  templateUrl: './bookmarks-list.component.html',
-  styleUrls: ['./bookmarks-list.component.scss'],
-  standalone: true,
-  imports: [
-    MatIconModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    AsyncPipe
-  ]
+    selector: 'app-bookmarks',
+    templateUrl: './bookmarks.component.html',
+    styleUrls: ['./bookmarks.component.scss'],
+    standalone: true,
+    imports: [
+        BookmarksListComponent,
+        MatIconModule,
+        MatToolbarModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        AsyncPipe
+    ]
 })
-export class BookmarksListComponent implements OnInit {
+export class BookmarksComponent implements OnInit {
     public bookmarks: Array<Bookmark> = [];
 
     public readonly store = inject(Store);

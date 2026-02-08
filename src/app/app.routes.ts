@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { BookmarksListComponent } from './components/bookmarks-list/bookmarks-list.component';
+import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
 
 export const routes: Routes = [
     {
@@ -13,6 +13,6 @@ export const routes: Routes = [
   },
   {
     path: 'bookmarks',
-    component: BookmarksListComponent
+    component: BookmarksComponent
   }
 ];

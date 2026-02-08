@@ -1,0 +1,35 @@
+<!-- Top bar -->
+<mat-toolbar color="primary">
+  <span>Bookmarker</span>
+
+  <span class="spacer"></span>
+
+  <mat-form-field>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput placeholder="Filter bookmarks..." />
+  </mat-form-field>
+
+  <button mat-icon-button>
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- Content -->
+<div class="page">
+     @if ((bookmarksByDate$ | async); as grouped) {
+         <!-- TODAY -->
+          @if (grouped.today.length) {
+            <app-bookmarks-list [title]="'Today'" [bookmarks]="grouped.today" />
+          }
+
+          <!-- YESTERDAY -->
+          @if (grouped.yesterday.length) {
+           <app-bookmarks-list [title]="'Yesterday'" [bookmarks]="grouped.yesterday" />
+          }
+
+          <!-- OLDER -->
+          @if (grouped.older.length) {
+            <app-bookmarks-list [title]="'Older'" [bookmarks]="grouped.older" />
+          }
+     }
+</div>
