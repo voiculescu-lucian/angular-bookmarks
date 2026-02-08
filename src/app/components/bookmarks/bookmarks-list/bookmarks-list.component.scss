@@ -1,18 +1,67 @@
 .group {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.group h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #000;
 }
 
 .bookmark {
   display: flex;
   align-items: center;
-  gap: 16px;
   padding: 8px 0;
 }
 
-.info {
-  flex: 1;
+.bookmark + .bookmark {
+  margin-top: 12px;
+}
+
+.bookmark mat-icon {
+  margin-right: 16px;
+  color: #000;
+}
+
+.bookmark button {
+  margin-left: auto;
+  opacity: 0.6;
+}
+
+.bookmark button:hover {
+  opacity: 1;
+}
+
+.bookmark:hover {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .title {
   font-weight: 500;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info .title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+
+.info a {
+  font-size: 13px;
+  color: #673ab7; // Material deep purple
+  text-decoration: none;
+}
+
+.info a:hover {
+  text-decoration: underline;
 }

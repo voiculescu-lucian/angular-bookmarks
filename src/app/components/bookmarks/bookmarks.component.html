@@ -1,16 +1,16 @@
 <!-- Top bar -->
-<mat-toolbar color="primary">
-  <span>Bookmarker</span>
+<mat-toolbar color="primary" class="toolbar">
+  <span class="title">Bookmarker</span>
 
-  <span class="spacer"></span>
-
-  <mat-form-field>
-    <mat-icon matPrefix>search</mat-icon>
-    <input matInput placeholder="Filter bookmarks..." />
-  </mat-form-field>
+  <div class="toolbar-center">
+    <mat-form-field appearance="outline">
+      <mat-icon matPrefix class="white">search</mat-icon>
+      <input matInput type="text" class="white" placeholder="Filter bookmarks..." />
+    </mat-form-field>
+  </div>
 
   <button mat-icon-button>
-    <mat-icon>add</mat-icon>
+    <mat-icon class="white">add</mat-icon>
   </button>
 </mat-toolbar>
 
