@@ -10,6 +10,7 @@ import { provideStore } from '@ngrx/store';
 import { bookmarksReducer } from './store/bookmarks.reducer';
 import { BookmarksEffects } from './store/bookmark.effects';
 import { provideEffects } from '@ngrx/effects';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,6 +23,7 @@ export const appConfig: ApplicationConfig = {
     }),
     provideEffects(BookmarksEffects),
     importProvidersFrom(
+      MatSnackBarModule,
       InMemoryWebApiModule.forRoot(InMemoryDbDataService, {
         delay: 300,
         apiBase: 'api/',

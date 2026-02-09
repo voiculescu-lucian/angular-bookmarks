@@ -9,6 +9,7 @@ import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   templateUrl: './bookmark-create.component.html',
@@ -30,6 +31,7 @@ import { Router } from '@angular/router';
 export class BookmarkCreateComponent {
         public readonly fb = inject(FormBuilder);
         private router = inject(Router);
+        private snackBar = inject(MatSnackBar);
 
         public form = this.fb.nonNullable.group({
             title: ['', Validators.required],
@@ -49,7 +51,11 @@ export class BookmarkCreateComponent {
                 })
             );
 
-             alert('Bookmark created successfully');
+            this.snackBar.open(
+                'Bookmark created successfully',
+                'OK',
+                { duration: 3000 }
+            );
 
             this.form.reset({
                 title: '',
