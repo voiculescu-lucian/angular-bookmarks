@@ -17,7 +17,6 @@ export const selectBookmarksGroupedByDate = createSelector(
     const timeToday = startOfDay(new Date());
     const timeYesterday = new Date(timeToday);
     timeYesterday.setDate(timeToday.getDate() - 1);
-    console.log('Bookmarks:', bookmarks);
     return {
       today: bookmarks.filter((bookmark: Bookmark) =>
         startOfDay(new Date(bookmark.createdAt)).getTime() === timeToday.getTime()

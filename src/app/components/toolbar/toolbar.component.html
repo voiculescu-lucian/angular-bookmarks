@@ -3,8 +3,8 @@
 
   <div class="toolbar-center" >
     <mat-form-field appearance="fill" class="toolbar-search" [matTooltipDisabled]="!searchDisabled()" matTooltipPosition="below" [matTooltip]="disabledText">
-      <mat-icon matPrefix class="white">search</mat-icon>
-      <input matInput type="text" class="white" placeholder="Filter bookmarks..."
+      <mat-icon matPrefix class="white pointer">search</mat-icon>
+      <input matInput type="text" class="white" [formControl]="form.controls.search" placeholder="Filter bookmarks..."
        />
     </mat-form-field>
   </div>

@@ -21,6 +21,14 @@
     </div>
 
     <div class="actions">
+         <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          class="cancel-button"
+          (click)="$event.stopPropagation()" [routerLink]="['/bookmarks']">
+          Cancel
+        </button>
       <button
         mat-flat-button
         color="primary"

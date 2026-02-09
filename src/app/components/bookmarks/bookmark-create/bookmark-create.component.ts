@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -24,7 +24,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     ReactiveFormsModule, 
     MatInputModule, 
     MatButtonModule,
-    MatLabel
+    MatLabel,
+    RouterModule
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
