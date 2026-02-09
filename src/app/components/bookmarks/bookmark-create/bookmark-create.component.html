@@ -1,0 +1,34 @@
+<mat-card class="create-card">
+  <div class="d-flex mb-16">
+    <mat-card-title class="w50">Create New Bookmark</mat-card-title>
+    <mat-card-subtitle class="w50">
+      Type bookmark name and url
+    </mat-card-subtitle>
+    <mat-icon>bookmark_border</mat-icon>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="create()">
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="underline-only">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="underline-only">
+        <mat-label>URL</mat-label>
+        <input matInput formControlName="url" />
+      </mat-form-field>
+    </div>
+
+    <div class="actions">
+      <button
+        mat-flat-button
+        color="primary"
+        type="submit"
+        class="submit-button"
+        [disabled]="form.invalid">
+        Create Bookmark
+      </button>
+    </div>
+  </form>
+</mat-card>

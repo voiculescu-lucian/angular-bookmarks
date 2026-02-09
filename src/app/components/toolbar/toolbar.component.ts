@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
@@ -14,6 +14,7 @@ import { filter } from 'rxjs';
   styleUrls: ['./toolbar.component.scss'],
   standalone: true,
   imports: [
+    RouterLink,
     MatIconModule,
     MatToolbarModule,
     MatFormFieldModule,

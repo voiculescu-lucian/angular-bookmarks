@@ -9,6 +9,55 @@
 }
 
 :host::ng-deep {
+    .form-row {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+    }
+
+    .form-row mat-form-field {
+    flex: 1;
+    }
+
+    .form-row .url {
+    flex: 2;
+    }
+
+    .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 1px solid #e0e0e0;
+    }
+
+    .d-flex {
+        display: flex;
+    }
+
+    .w50 {
+        width: 50%;
+    }
+
+    .mb-16 {
+        margin-bottom: 16px;
+    }
+    .create-card,
+    .edit-card {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 16px;
+    }
+    .cancel-button {
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .submit-button {
+        color: white;
+        border-radius: 5px;
+        background: #3F51B5;
+    }
     .underline-only {
         .mat-mdc-text-field-wrapper {
             background: transparent;

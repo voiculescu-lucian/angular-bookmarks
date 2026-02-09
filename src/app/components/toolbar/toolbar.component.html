@@ -9,7 +9,7 @@
     </mat-form-field>
   </div>
 
-  <button mat-icon-button>
+  <button mat-icon-button (click)="$event.stopPropagation()" [routerLink]="['/bookmarks', 'create']">
     <mat-icon class="white">add</mat-icon>
   </button>
 </mat-toolbar>
